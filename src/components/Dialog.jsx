@@ -3,7 +3,9 @@ import { useEffect, useRef } from 'react';
 export default function Dialog({ children, onClose, labelledBy, className = '', onKeyDown }) {
   const dialog = useRef(null);
   const callback = useRef(onClose);
-  useEffect(() => { callback.current = onClose; }, [onClose]);
+  useEffect(() => {
+    callback.current = onClose;
+  }, [onClose]);
   useEffect(() => {
     const element = dialog.current;
     const previousFocus = document.activeElement;
@@ -16,5 +18,21 @@ export default function Dialog({ children, onClose, labelledBy, className = '', 
       if (previousFocus?.isConnected) previousFocus.focus({ preventScroll: true });
     };
   }, []);
-  return <dialog ref={dialog} className={`modal ${className}`} aria-labelledby={labelledBy} onCancel={(event) => { event.preventDefault(); callback.current(); }} onClick={(event) => { if (event.target === event.currentTarget) callback.current(); }} onKeyDown={onKeyDown}>{children}</dialog>;
+  return (
+    <dialog
+      ref={dialog}
+      className={`modal ${className}`}
+      aria-labelledby={labelledBy}
+      onCancel={(event) => {
+        event.preventDefault();
+        callback.current();
+      }}
+      onClick={(event) => {
+        if (event.target === event.currentTarget) callback.current();
+      }}
+      onKeyDown={onKeyDown}
+    >
+      {children}
+    </dialog>
+  );
 }
