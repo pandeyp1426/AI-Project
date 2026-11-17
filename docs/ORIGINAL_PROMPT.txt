@@ -1,0 +1,1094 @@
+
+You are a senior frontend developer, UI/UX designer, and software engineer specializing in React, Tailwind CSS, responsive web development, and accessible interactive websites.
+
+I want you to design, develop, test, document, and prepare a complete website for my university AI-Assisted Coding assignment.
+
+PROJECT TITLE:
+New York, Someday
+
+TAGLINE:
+A city I haven't explored yet, but can't wait to discover.
+
+PROJECT CONCEPT:
+Create a beautiful, fully functional, multi-page website about New York City, a place I would love to visit someday.
+
+The website should combine a personal travel wish list, destination discovery, photography, and interactive trip planning.
+
+It should feel like a real travel website created by an experienced frontend developer and professional graphic designer, not a basic student assignment or generic AI-generated landing page.
+
+The main objective is to earn the highest possible grade by fully satisfying the assignment rubric while producing a website that is visually impressive, technically clean, genuinely useful, accessible, and ready to host on GitHub Pages.
+
+IMPORTANT:
+Actually create and implement the website files in the workspace. Do not simply explain how to build the project or provide sample snippets.
+
+Complete the implementation, fix problems, and verify the production build.
+
+==================================================
+1. REQUIRED TECHNOLOGY STACK
+==================================================
+
+Use:
+
+- React with functional components and hooks
+- Vite as the build tool
+- Tailwind CSS, using the current stable Vite integration
+- JavaScript with JSX
+- React Router using HashRouter for compatibility with GitHub Pages
+- Lucide React icons
+- Google Fonts or another appropriately licensed font source
+- LocalStorage for saving user preferences
+- Modern semantic HTML5 elements
+- CSS Grid and Flexbox through Tailwind
+- A shared external CSS entry file for global styles
+
+Do not use:
+- Next.js
+- Backend servers
+- Databases
+- Paid APIs
+- API keys
+- Bootstrap
+- Large UI component libraries
+- Fake backend functionality
+
+The website must run as a standalone static React application.
+
+Use npm as the package manager.
+
+Keep dependencies minimal.
+
+Use reusable components instead of placing the entire application inside App.jsx.
+
+Ensure all JavaScript features work without a backend.
+
+==================================================
+2. WEBSITE STRUCTURE
+==================================================
+
+Build FIVE complete pages using React Router.
+
+Every page must have meaningful content, appropriate images, consistent styling, shared navigation, and a footer.
+
+PAGE 1: HOME
+
+Purpose:
+Introduce New York City and explain why it is a dream travel destination.
+
+Include:
+
+A. Navigation header
+- Brand name: "New York, Someday"
+- Links to Home, Explore, Gallery, Plan My Trip, and Why NYC
+- Responsive desktop navigation
+- Accessible hamburger menu on mobile
+- Active page indicator
+- Sticky navigation with subtle styling changes on scroll
+
+B. Hero section
+- A stunning, high-resolution photograph of the Manhattan skyline
+- Full-width cinematic layout
+- Dark gradient overlay for readable text
+- Large editorial headline:
+  "Some cities you visit.
+   New York, you experience."
+- Supporting text explaining my desire to visit NYC
+- Two clear buttons:
+  "Explore the City"
+  "Plan My Dream Trip"
+- Appropriate image attribution
+
+C. Personal introduction
+A section titled:
+"Why New York?"
+
+Write engaging content from the perspective of someone who has always wanted to experience NYC.
+
+Mention:
+- The skyline
+- City energy
+- Different neighborhoods
+- Architecture
+- Culture
+- Food
+- Famous landmarks
+- The experience of walking through the city
+
+Do not imply that I have already visited New York.
+
+D. Featured destinations
+Include visually attractive cards for:
+- Times Square
+- Central Park
+- Brooklyn Bridge
+- Statue of Liberty
+- Empire State Building
+- DUMBO, Brooklyn
+
+Each card must display:
+- Real photograph
+- Destination name
+- Short meaningful description
+- Neighborhood or location
+- Category
+- View details action
+- Save to favorites action
+
+E. Experience NYC
+Create a beautifully designed section highlighting:
+- Iconic landmarks
+- Art and culture
+- Food experiences
+- Parks and green spaces
+
+F. Closing call-to-action
+Encourage users to start building their own NYC itinerary.
+
+PAGE 2: EXPLORE NEW YORK
+
+Purpose:
+Help visitors discover destinations and experiences.
+
+Build a destination discovery interface with at least 10 meaningful entries.
+
+Include destinations such as:
+- Central Park
+- Times Square
+- Brooklyn Bridge
+- Statue of Liberty
+- Empire State Building
+- The High Line
+- Grand Central Terminal
+- Washington Square Park
+- Rockefeller Center
+- DUMBO
+- The Metropolitan Museum of Art
+- One World Observatory
+
+Every destination should have:
+- Real image
+- Name
+- Borough or neighborhood
+- Category
+- Informative description
+- Interesting verified details
+- Favorite button
+- Optional link to a reliable official website
+
+INTERACTIVE FEATURES:
+
+A. Search
+Users should be able to search destinations by name or description.
+
+B. Category filtering
+Include category buttons such as:
+- All
+- Landmarks
+- Parks
+- Museums & Culture
+- Neighborhoods
+- Views
+
+C. Favorites
+Allow users to save and remove destinations.
+
+Persist favorites in LocalStorage.
+
+D. Destination details
+Clicking a destination should reveal more information through an accessible detail panel, modal, or dedicated view.
+
+EDGE CASES:
+- Search with no matching results
+- Clearing search restores all results
+- Category filters and search work together
+- Favorites persist after page refresh
+- Removing a favorite updates the interface immediately
+- Invalid LocalStorage data does not crash the application
+- Modals close with Escape
+- Focus is appropriately managed for dialogs
+
+Store destination data in a dedicated JavaScript data module.
+
+PAGE 3: PHOTO GALLERY
+
+Purpose:
+Create a visual experience showcasing NYC.
+
+Include at least 12 properly licensed photographs.
+
+Suggested photography:
+- Manhattan skyline
+- Brooklyn Bridge
+- Times Square at night
+- Central Park
+- Statue of Liberty
+- DUMBO
+- Empire State Building
+- Grand Central Terminal
+- Streets of Manhattan
+- New York subway
+- High Line
+- NYC sunset or nighttime skyline
+
+DESIGN:
+- Responsive masonry-inspired or carefully composed grid
+- Different image aspect ratios
+- Consistent image cropping
+- Elegant hover effects
+- Descriptive captions
+- Plenty of whitespace
+
+INTERACTIVE FEATURE:
+Implement a complete image lightbox.
+
+Requirements:
+- Click an image to enlarge it
+- Previous and next buttons
+- Keyboard arrow navigation
+- Escape key closes the lightbox
+- Click outside to close
+- Image counter
+- Correct alt text
+- Mobile compatibility
+- Proper dialog semantics and focus management
+- No broken images
+- No accidental background scrolling while open
+
+The gallery should feel polished and purposeful.
+
+PAGE 4: PLAN MY TRIP
+
+Purpose:
+Create an interactive itinerary builder.
+
+This should be the most impressive functional feature of the website.
+
+Build an attractive travel planning interface.
+
+SECTION A: TRIP DURATION
+
+Let visitors choose:
+- 1 day
+- 2 days
+- 3 days
+- 4 days
+
+Use accessible selectable cards or buttons.
+
+SECTION B: TRAVEL INTERESTS
+
+Allow users to select interests such as:
+- Famous landmarks
+- Nature and parks
+- Art and museums
+- Photography
+- Food experiences
+- Neighborhood exploration
+
+SECTION C: GENERATE ITINERARY
+
+Include a button:
+"Build My NYC Itinerary"
+
+When clicked, generate a useful itinerary using local JavaScript data and deterministic planning rules.
+
+No backend or AI API is needed.
+
+The itinerary should:
+- Adapt to trip duration
+- Consider selected interests
+- Group nearby attractions when practical
+- Avoid duplicate attractions
+- Show morning, afternoon, and evening suggestions
+- Display clear daily sections
+- Include descriptive text
+- Use meaningful images where appropriate
+- Gracefully handle limited selections
+
+Make the generated schedule realistic without claiming exact travel times, admission prices, or opening hours that have not been verified.
+
+SECTION D: SAVE ITINERARY
+
+Allow users to:
+- Save their current itinerary locally
+- Reload a saved itinerary
+- Reset selections
+- Regenerate an itinerary
+- Print or export a print-friendly itinerary using the browser print feature
+
+Use LocalStorage for persistence.
+
+A user should never lose their saved itinerary merely because they refresh the page.
+
+SECTION E: TRAVEL TIPS
+
+Include a concise, useful section covering:
+- Walking around NYC
+- Using public transportation
+- Planning visits geographically
+- Comfortable footwear
+- Booking major attractions in advance
+- Checking official information before visiting
+
+No fake live transit data or invented ticket prices.
+
+PAGE 5: WHY NEW YORK?
+
+Purpose:
+Make the website personal rather than just another generic destination guide.
+
+Create an editorial-style story page.
+
+Main headline:
+"Why New York Is on My Bucket List"
+
+The writing should convey genuine curiosity and excitement about visiting the city.
+
+Organize into sections:
+
+1. The City I've Always Wanted to See
+2. The Skyline and Architecture
+3. Experiencing the Streets and Neighborhoods
+4. The Food, Culture, and People
+5. My Ideal First Day in New York
+6. What I Hope to Take Away From the Experience
+
+Tone:
+- Natural
+- Personal
+- Reflective
+- Engaging
+- Not overly dramatic
+- Not obviously AI-generated
+
+This page should reflect someone planning a future visit, not someone describing a trip already completed.
+
+Use relevant NYC photography and editorial layouts.
+
+Avoid inventing personal experiences or biographical details.
+
+==================================================
+3. VISUAL DESIGN REQUIREMENTS
+==================================================
+
+Create a premium travel editorial design.
+
+The website should resemble a thoughtfully designed travel magazine or modern destination discovery platform.
+
+DESIGN IDENTITY:
+
+Primary color:
+Deep midnight navy #101827
+
+Background:
+Warm ivory #F8F7F3
+
+Accent:
+Muted burnt orange #D97745
+
+Secondary:
+Soft slate #64748B
+
+Text:
+Near-black #172033
+
+You may adjust these colors slightly to improve contrast and coherence.
+
+TYPOGRAPHY:
+Use an elegant serif font for major editorial headings, such as Playfair Display.
+
+Use a modern sans-serif font for navigation, descriptions, buttons, and UI components, such as Inter or DM Sans.
+
+LAYOUT:
+- Clear visual hierarchy
+- Strong typography
+- Consistent spacing
+- Elegant image compositions
+- Large cinematic hero sections
+- Beautiful destination cards
+- Professional navigation
+- Balanced use of whitespace
+- Consistent border radii
+- Subtle shadows only when useful
+- Well-designed footer
+- Distinct page layouts with one unified identity
+
+DETAILS:
+- Refined hover interactions
+- Smooth but restrained transitions
+- Attractive button styles
+- Carefully aligned content
+- Consistent max-width containers
+- Responsive image sizing
+- Clear interactive feedback
+- Pleasant empty states
+- Appropriate loading behavior if needed
+
+Avoid:
+- Generic template appearance
+- Oversized icons
+- Excessive animations
+- Random gradients
+- Inconsistent spacing
+- Cluttered interfaces
+- Excessively rounded cards
+- Huge blocks of meaningless filler
+- Emoji used as primary design icons
+- Repetitive card layouts on every page
+
+Make it feel original, cohesive, and carefully art-directed.
+
+==================================================
+4. IMAGES AND CONTENT
+==================================================
+
+You may use internet access to find and download genuine NYC photographs if available.
+
+Preferred sources:
+- Wikimedia Commons
+- Unsplash
+- Other reputable sources explicitly allowing reuse
+
+Requirements:
+- Verify image reuse rights
+- Follow license and attribution requirements
+- Prefer storing verified images locally in public/images/
+- Use descriptive filenames
+- Optimize image file sizes
+- Use WebP where practical
+- Preserve image quality
+- Add meaningful alt text
+- Use lazy loading for non-critical images
+- Prevent layout shifts with explicit dimensions or aspect ratios
+- Do not download copyrighted images without permission
+- Do not use random image endpoints that might change or break
+
+Create:
+docs/IMAGE_CREDITS.md
+
+Record:
+- Filename
+- Photographer or creator
+- Source URL
+- License or permission
+- Required attribution
+- Any modifications when relevant
+
+Display visible attribution where required by the license.
+
+If internet downloads are unavailable, use appropriately licensed image URLs as a temporary fallback, document them, and clearly report what remains to be downloaded.
+
+Do not falsely claim that image rights were verified.
+
+CONTENT QUALITY:
+
+Write complete, meaningful original descriptions.
+
+Do not use Lorem Ipsum.
+
+Do not use generic filler such as:
+"Discover amazing places and unforgettable experiences."
+
+Include informative descriptions grounded in real places.
+
+Verify uncertain factual claims when browsing is available.
+
+Do not invent:
+- Ticket prices
+- Hours
+- Travel times
+- Visitor statistics
+- Historic facts
+- Restaurant information
+
+Do not copy paragraphs from travel websites.
+
+==================================================
+5. COMPONENT ARCHITECTURE
+==================================================
+
+Use a clean, maintainable component structure.
+
+Suggested organization:
+
+src/
+  components/
+    Navbar.jsx
+    Footer.jsx
+    Hero.jsx
+    DestinationCard.jsx
+    SearchBar.jsx
+    CategoryFilter.jsx
+    FavoriteButton.jsx
+    GalleryGrid.jsx
+    ImageLightbox.jsx
+    ItineraryBuilder.jsx
+    ItineraryDay.jsx
+    ScrollToTop.jsx
+
+  pages/
+    Home.jsx
+    Explore.jsx
+    Gallery.jsx
+    PlanTrip.jsx
+    WhyNYC.jsx
+
+  data/
+    destinations.js
+    gallery.js
+    itinerary.js
+
+  hooks/
+    useLocalStorage.js
+
+  utils/
+    itineraryGenerator.js
+    storage.js
+
+  App.jsx
+  main.jsx
+  index.css
+
+public/
+  images/
+
+docs/
+  SITE_PLAN.md
+  PROMPT_LOG.md
+  TEST_REPORT.md
+  REFLECTION.md
+  IMAGE_CREDITS.md
+
+.github/
+  workflows/
+    deploy.yml
+
+README.md
+
+This is a suggested structure. Improve it where technically appropriate.
+
+Each component should have one clear responsibility.
+
+Avoid duplicate data.
+
+Use shared components wherever possible.
+
+Keep code readable and consistently formatted.
+
+==================================================
+6. ACCESSIBILITY AND CODE QUALITY
+==================================================
+
+The assignment specifically rewards semantic HTML, organized code, accessibility, and consistent formatting.
+
+Use:
+- header
+- nav
+- main
+- section
+- article
+- footer
+- button
+- appropriate headings
+
+Every page should have:
+- One primary h1
+- Logical heading hierarchy
+- Descriptive page content
+- Accessible navigation
+
+ACCESSIBILITY:
+- Descriptive image alt text
+- Proper labels for inputs
+- Visible keyboard focus indicators
+- Adequate color contrast
+- Keyboard-accessible interactive controls
+- Appropriate aria attributes
+- Accessible dialog behavior
+- Skip-to-content link
+- Reduced-motion support
+- Buttons for actions, links for navigation
+- No clickable divs used instead of buttons
+
+QUALITY:
+- No unnecessary inline styles
+- Shared external CSS entry point
+- Reusable JavaScript modules
+- Clean JSX
+- Meaningful variable names
+- No unused imports
+- No unnecessary dependencies
+- No hardcoded repeated data
+- Helpful comments for non-obvious logic
+- Consistent formatting
+- Proper error handling
+
+React event handlers and shared JavaScript modules serve the interactive JavaScript requirement.
+
+Tailwind's compiled CSS and the shared index.css file serve the external stylesheet requirement.
+
+Explain this mapping clearly in the README because the assignment examples use traditional HTML, CSS, and JavaScript files.
+
+==================================================
+7. RESPONSIVE DESIGN
+==================================================
+
+The entire website must work correctly at:
+
+- 320px small mobile
+- 375px mobile
+- 768px tablet
+- 1024px laptop
+- 1440px desktop
+- 1920px large desktop
+
+Requirements:
+- No horizontal scrolling
+- No overflowing text
+- No clipped buttons
+- No broken grid layouts
+- No overlapping navigation
+- Readable text on all screens
+- Responsive hero images
+- Comfortable touch target sizes
+- Mobile-friendly itinerary controls
+- Accessible hamburger navigation
+- Responsive gallery and destination cards
+
+Use mobile-first Tailwind classes.
+
+Avoid relying only on one breakpoint.
+
+==================================================
+8. JAVASCRIPT FUNCTIONALITY
+==================================================
+
+Every interactive feature must be genuinely functional.
+
+Do not make decorative controls that do nothing.
+
+Implement and test:
+
+1. Mobile navigation
+2. Destination searching
+3. Destination category filtering
+4. Saving and removing favorites
+5. Favorite persistence after refresh
+6. Interactive image lightbox
+7. Keyboard image navigation
+8. Trip-duration selection
+9. Interest selection
+10. Itinerary generation
+11. Itinerary saving and reloading
+12. Reset and regeneration
+13. Print-friendly itinerary
+
+IMPORTANT EDGE CASES:
+- Empty search input
+- Search with no results
+- No selected interests
+- Very limited matching destinations
+- Repeated button clicks
+- Missing optional data
+- Empty saved itinerary
+- Corrupted LocalStorage
+- Direct navigation to a route
+- Refreshing any route
+- Keyboard navigation
+- Small mobile screens
+
+All functionality must work without a server.
+
+==================================================
+9. GITHUB PAGES DEPLOYMENT
+==================================================
+
+Prepare the project for GitHub hosting.
+
+Suggested repository name:
+nyc-dream-trip
+
+Use the actual repository name if the workspace already specifies one.
+
+Requirements:
+- Vite production build
+- Correct base path for repository hosting
+- HashRouter for reliable static navigation
+- Asset paths that work under the repository subpath
+- GitHub Actions deployment workflow
+- Deployment from the main branch
+- Output from the dist directory
+- No backend requirements
+- No secrets committed to the repository
+
+Create:
+.github/workflows/deploy.yml
+
+Use the recommended Vite GitHub Pages deployment approach.
+
+Include a complete README section explaining:
+1. How to install dependencies
+2. How to start the development server
+3. How to build the project
+4. How to preview the production build
+5. How to push to GitHub
+6. How to enable GitHub Pages using GitHub Actions
+7. How to update the repository name and Vite base path
+
+Do not claim that the site is deployed unless deployment has actually been confirmed.
+
+==================================================
+10. DEVELOPMENT WORKFLOW
+==================================================
+
+The assignment requires an AI-assisted workflow with meaningful development stages and Git history.
+
+Complete the project in logical milestones:
+
+MILESTONE 1:
+Project planning, content outline, and initial setup.
+
+MILESTONE 2:
+React application structure, routing, and shared navigation.
+
+MILESTONE 3:
+Page content, images, and reusable components.
+
+MILESTONE 4:
+Tailwind styling and responsive improvements.
+
+MILESTONE 5:
+JavaScript interactive features.
+
+MILESTONE 6:
+Testing, debugging, accessibility improvements, and refactoring.
+
+MILESTONE 7:
+Documentation, production build, and deployment preparation.
+
+If Git is available, create appropriately named commits after completing and verifying each milestone.
+
+Do not invent Git history or claim nonexistent commits.
+
+Do not overwrite unrelated existing work.
+
+Where user review is required, identify what should be reviewed and give a concise explanation of the design or implementation decision.
+
+IMPORTANT:
+My assignment requires me to understand and take ownership of the code. Keep architecture understandable and explain meaningful technical decisions.
+
+==================================================
+11. REQUIRED AI PROMPT LOG
+==================================================
+
+Create:
+docs/PROMPT_LOG.md
+
+The assignment requires documentation of at least THREE significant AI-assisted development features.
+
+For each real recorded interaction, include:
+
+- Feature developed
+- AI tool used
+- Actual prompt
+- What the AI produced
+- What was accepted
+- What was modified or rejected
+- Reason for the decision
+- Relevant debugging and corrections
+
+Use Codex as the AI tool where applicable.
+
+Record the actual current prompt and subsequent real prompts or instructions.
+
+IMPORTANT:
+Do not fabricate previous prompts, personal decisions, debugging problems, or user feedback.
+
+If I have not yet reviewed a feature, leave a clearly labeled review field for me.
+
+Identify at least three useful checkpoints where I can independently review the design and give Codex follow-up instructions.
+
+The final log should show genuine iteration, correction, and ownership.
+
+==================================================
+12. REQUIRED TEST REPORT
+==================================================
+
+Create:
+docs/TEST_REPORT.md
+
+Use a professional test table with:
+
+- Test ID
+- Feature tested
+- Test procedure
+- Expected result
+- Actual result
+- Pass/Fail/Not yet tested
+- Fix or correction
+
+Include tests for:
+
+NAVIGATION:
+- Every navigation link
+- Navigation from every page
+- Direct route navigation
+- Page refresh
+- Mobile menu
+
+IMAGES:
+- All images load
+- Every image has alt text
+- Correct aspect ratios
+- License attribution recorded
+
+JAVASCRIPT:
+- Search
+- Category filters
+- Favorites
+- LocalStorage persistence
+- Gallery lightbox
+- Keyboard shortcuts
+- Trip planner
+- Empty states
+- Save/reset/print
+
+RESPONSIVENESS:
+- Desktop
+- Tablet
+- Mobile
+- Small mobile
+
+CODE:
+- Browser console
+- Broken assets
+- Invalid links
+- Production build
+- Accessibility checks
+
+Use automated tests and browser inspection tools where available.
+
+Actually run commands and tests that are possible in the environment.
+
+Do not mark a test as passed unless it was genuinely executed and verified.
+
+Clearly distinguish automated verification from tests that require manual browser checking.
+
+==================================================
+13. REQUIRED REFLECTION
+==================================================
+
+Create:
+docs/REFLECTION.md
+
+Provide an editable reflection draft covering:
+
+- Why I chose New York City as my topic
+- Why I used React and Tailwind CSS
+- How Codex helped develop the website
+- What I learned from reviewing AI-generated code
+- Important design and implementation decisions
+- Challenges encountered during development
+- How issues were corrected
+- What I would improve with more time
+- My responsibility for the final implementation
+
+Keep the writing natural and appropriate for a university student.
+
+Do not invent challenges, human testing results, or personal decisions.
+
+Clearly mark any sections requiring my own input.
+
+==================================================
+14. README AND SITE PLAN
+==================================================
+
+Create a professional README.md with:
+
+- Project title
+- Description
+- Website goals
+- Features
+- Technology stack
+- Pages and sections
+- Project structure
+- Installation instructions
+- Development commands
+- Production build commands
+- GitHub Pages instructions
+- Image attribution reference
+- Accessibility overview
+- Testing overview
+- Known limitations, if any
+
+Create:
+docs/SITE_PLAN.md
+
+Include:
+- A concise 5 to 10 line original project plan
+- Page architecture
+- Design direction
+- Intended audiences
+- Main interactions
+
+Make the repository organized and easy for the instructor to evaluate.
+
+==================================================
+15. FINAL QUALITY ASSURANCE
+==================================================
+
+Before declaring the implementation complete:
+
+1. Install dependencies.
+2. Verify the development server starts.
+3. Run the linter and correct issues.
+4. Run the production build.
+5. Fix all reported compilation errors.
+6. Execute available automated tests.
+7. Inspect the interface in a browser if browser tools are available.
+8. Verify all five routes.
+9. Verify interactive functionality.
+10. Check responsiveness.
+11. Check accessibility.
+12. Confirm image assets and attribution.
+13. Verify deployment configuration.
+14. Review file organization.
+15. Remove unused code and placeholders.
+
+Include appropriate npm scripts for:
+- dev
+- build
+- preview
+- lint
+- test, if tests are implemented
+
+Do not claim that manual browser testing occurred unless it actually did.
+
+If anything cannot be tested in the current environment, clearly list the outstanding tests.
+
+==================================================
+16. GRADING RUBRIC: TARGET 100/100
+==================================================
+
+CATEGORY 1: CONTENT AND STRUCTURE — 20 POINTS
+
+Exceeds expectations requires:
+Three or more cohesive pages or sections with complete, polished content throughout.
+
+Our implementation must have:
+- Five complete pages
+- Consistent navigation
+- Meaningful original content
+- Working links
+- At least two properly licensed images
+- No unfinished sections
+- Clear site organization
+
+CATEGORY 2: DESIGN AND CSS — 20 POINTS
+
+Exceeds expectations requires:
+Consistent, attractive design with a fully responsive layout across screen sizes.
+
+Our implementation must have:
+- Premium visual quality
+- Cohesive design system
+- Beautiful photography
+- Tailwind styling
+- Mobile-first responsiveness
+- Consistent typography
+- Professional spacing and alignment
+
+CATEGORY 3: JAVASCRIPT FEATURE — 20 POINTS
+
+Exceeds expectations requires:
+Interactive features that work well, handle edge cases, and are cleanly implemented.
+
+Our implementation must have:
+- Working search and filtering
+- Persistent favorites
+- Fully functional gallery lightbox
+- Working itinerary generator
+- Persistent itinerary storage
+- Accessible interactions
+- Edge-case handling
+- Meaningful error and empty states
+
+CATEGORY 4: CODE QUALITY — 20 POINTS
+
+Exceeds expectations requires:
+Semantic HTML, organized CSS and JavaScript, accessible markup, and consistently formatted code.
+
+Our implementation must have:
+- Semantic HTML
+- Accessible React components
+- Reusable architecture
+- Shared CSS and JS modules
+- Maintainable data organization
+- Consistent formatting
+- Clear documentation
+- No unnecessary duplication
+
+CATEGORY 5: AI WORKFLOW AND REFLECTION — 20 POINTS
+
+Exceeds expectations requires:
+A detailed prompt log with thoughtful reflection on corrections made and ownership of the final work.
+
+Our implementation must have:
+- Authentic prompt records
+- At least three significant feature interactions documented
+- Specific corrections and decisions
+- Genuine test results
+- Thoughtful reflection
+- Clear explanation of user ownership
+
+Pay particular attention to category 5. Do not treat documentation as an afterthought.
+
+==================================================
+17. FINAL DELIVERABLES
+==================================================
+
+At completion, the workspace should contain:
+
+1. A complete React website
+2. Five functional pages
+3. Polished responsive Tailwind styling
+4. Real, properly licensed NYC photographs
+5. Working JavaScript interactions
+6. Reusable React components
+7. Accessible markup
+8. Organized source code
+9. GitHub Pages deployment workflow
+10. README.md
+11. docs/SITE_PLAN.md
+12. docs/PROMPT_LOG.md
+13. docs/TEST_REPORT.md
+14. docs/REFLECTION.md
+15. docs/IMAGE_CREDITS.md
+16. Production build that completes successfully
+
+FINAL RESPONSE FROM CODEX:
+
+When finished, provide:
+- A summary of the website
+- Features implemented
+- File structure
+- Actual commands executed
+- Test results
+- Any unresolved issues
+- Remaining manual review steps
+- Instructions to run locally
+- Instructions to publish using GitHub Pages
+- Suggested follow-up prompts for genuine design and functionality refinement
+
+CRITICAL FINAL INSTRUCTION:
+
+Do not stop after creating a basic working prototype.
+
+Complete the website to a polished, production-ready academic project standard.
+
+Prioritize working functionality, design consistency, content quality, accessibility, and documentation over unnecessary complexity.
+
+Actually write the code, run available checks, fix issues, and prepare the project for submission.
+
+Do not invent completion claims or verification results.
+
+Begin by inspecting the workspace, writing the site plan, and then implementing the complete website.
