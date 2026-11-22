@@ -120,7 +120,7 @@ test('planner generates each duration, saves, refreshes, reloads, resets and pri
 }) => {
   await page.goto('./#/plan');
   await expect(page.getByRole('button', { name: 'Load saved' })).toBeDisabled();
-  for (const duration of [1, 2, 3, 4]) {
+  for (const duration of [1, 2, 3, 4, 5, 6, 7]) {
     await page
       .getByRole('button', { name: `${duration} ${duration === 1 ? 'day' : 'days'}`, exact: true })
       .click();
@@ -131,13 +131,13 @@ test('planner generates each duration, saves, refreshes, reloads, resets and pri
   await page.getByRole('button', { name: 'Save itinerary', exact: true }).click();
   await expect(page.getByRole('status')).toContainText('Itinerary saved');
   const before = await page.locator('.itinerary-day h4').allTextContents();
-  expect(new Set(before).size).toBe(12);
+  expect(new Set(before).size).toBe(21);
   await page.reload();
   expect(await page.locator('.itinerary-day h4').allTextContents()).toEqual(before);
   await page.getByRole('button', { name: 'Reset selections' }).click();
   await expect(page.locator('.itinerary-day')).toHaveCount(0);
   await page.getByRole('button', { name: 'Load saved' }).click();
-  await expect(page.locator('.itinerary-day')).toHaveCount(4);
+  await expect(page.locator('.itinerary-day')).toHaveCount(7);
   await page.getByRole('button', { name: 'Regenerate', exact: true }).click();
   expect(await page.locator('.itinerary-day h4').allTextContents()).toEqual(before);
   await page.evaluate(() => {

@@ -45,7 +45,7 @@ export default function ItineraryDay({ day }) {
                   </a>
                 )}
               </div>
-              {index === 0 && stop && (
+              {index === 0 && stop?.photo && (
                 <figure className="stop-photo">
                   <Photo id={stop.photo} className="aspect-square w-full rounded-sm object-cover" />
                   <figcaption className="mt-1">

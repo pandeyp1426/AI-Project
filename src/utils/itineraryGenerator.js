@@ -1,4 +1,10 @@
-import { activities, interests, regions } from '../data/itinerary.js';
+import {
+  activities,
+  extendedTripRegions,
+  interests,
+  maxDuration,
+  regions,
+} from '../data/itinerary.js';
 
 const allowedInterests = new Set(interests.map((interest) => interest.id));
 
@@ -9,7 +15,7 @@ export function validPreferences(value) {
     value.version === 1 &&
     Number.isInteger(value.duration) &&
     value.duration >= 1 &&
-    value.duration <= 4 &&
+    value.duration <= maxDuration &&
     Array.isArray(value.interests) &&
     value.interests.length <= allowedInterests.size &&
     new Set(value.interests).size === value.interests.length &&
@@ -19,13 +25,15 @@ export function validPreferences(value) {
 
 export function generateItinerary(preferences) {
   if (!validPreferences(preferences))
-    throw new TypeError('Choose one to four days and valid interests.');
+    throw new TypeError(`Choose between 1 and ${maxDuration} days and valid interests.`);
   const selected = new Set(preferences.interests);
   const score = (id) =>
     (activities[id]?.tags || []).filter((tag) => selected.has(tag)).length +
     (id === 'met-museum' && selected.has('culture') ? 2 : 0);
   // Rank areas by their best matches per time block. Ties retain the editorial order.
-  const ranked = regions
+  const availableRegions =
+    preferences.duration <= 4 ? regions : [...regions, ...extendedTripRegions];
+  const ranked = availableRegions
     .map((region, order) => ({
       ...region,
       order,

@@ -16,13 +16,14 @@ import {
   Trees,
   Utensils,
 } from 'lucide-react';
-import { defaultPreferences, interests } from '../data/itinerary.js';
+import { defaultPreferences, interests, maxDuration } from '../data/itinerary.js';
 import { generateItinerary, validPreferences } from '../utils/itineraryGenerator.js';
 import useLocalStorage from '../hooks/useLocalStorage.js';
 import ItineraryDay from './ItineraryDay.jsx';
 
 const icons = { Landmark, Trees, Palette, Camera, Utensils, Map };
 const validSaved = (value) => value === null || validPreferences(value);
+const durations = Array.from({ length: maxDuration }, (_, index) => index + 1);
 
 export default function ItineraryBuilder() {
   const [params] = useSearchParams();
@@ -82,7 +83,7 @@ export default function ItineraryBuilder() {
               <span>01</span>How long have you got?
             </legend>
             <div className="mt-4 grid grid-cols-4 gap-2">
-              {[1, 2, 3, 4].map((duration) => (
+              {durations.map((duration) => (
                 <button
                   type="button"
                   key={duration}
