@@ -36,7 +36,7 @@ Serve the build with `npm run preview` or a static host; do not open `dist/index
 | Home         | `#/`        | Skyline hero, personal introduction, six featured places, themed discovery links                 |
 | Explore      | `#/explore` | 12 destinations, full-text search, combined category/favorites filters, detail dialogs           |
 | Gallery      | `#/gallery` | 13 local photos, responsive masonry composition, keyboard lightbox, full photo credits           |
-| Plan My Trip | `#/plan`    | 1–4 days, six interests, morning/afternoon/evening suggestions, save/load/reset/regenerate/print |
+| Plan My Trip | `#/plan`    | 1–7 days, six interests, morning/afternoon/evening suggestions, save/load/reset/regenerate/print |
 | Why NYC      | `#/why-nyc` | Six original editorial sections and an imagined first day                                        |
 
 All pages share sticky navigation, active-route indication, an accessible mobile menu, a skip link, and a footer. Search includes names, locations, descriptions, and details: “Central Park” also finds the Met because its description mentions the park.
@@ -76,7 +76,7 @@ docs/
 
 **Design:** Midnight navy, warm ivory, restrained terracotta and darker rust for accessible controls; editorial serif headings, modern sans-serif text, distinct page compositions, consistent spacing. Tailwind uses its [current official Vite integration](https://tailwindcss.com/docs/installation/using-vite), not a legacy PostCSS setup.
 
-**Planning rules:** Five curated geographic day templates each contain three time blocks with candidate activities. Matching interests score candidates and areas; art/museum interest gives the Met extra weight. Editorial order resolves ties. A used-ID set prevents duplicates. The best one to four areas become the trip. Empty interests use the default order. The harbor day leaves its afternoon flexible for the island visit. The same settings produce the same plan; regeneration is deliberately not random.
+**Planning rules:** Seven geographic day templates each contain three time blocks with candidate activities. Plans of up to four days draw from the original five templates. Plans of five to seven days also consider Tribeca and the East Village. Matching interests score candidates and areas, with extra weight for the Met when art and museums are selected. Editorial order resolves ties, and a used-ID set prevents duplicates. The harbor day leaves its afternoon flexible for the island visit. The same settings produce the same plan.
 
 **Saving:** `nyc-someday:favorites:v1` stores validated destination IDs; `nyc-someday:itinerary:v1` stores validated duration/interests. The deterministic generator reconstructs the saved itinerary. A later change to planning data could change that reconstruction. Reset does not delete the saved plan. Storage exceptions produce feedback; favorites still work in memory, while failed itinerary writes retain the last successfully saved preferences. Data stays in the current browser/profile/origin, with no cross-device or live cross-tab synchronization.
 

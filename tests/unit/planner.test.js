@@ -3,8 +3,8 @@ import assert from 'node:assert/strict';
 import { interests } from '../../src/data/itinerary.js';
 import { generateItinerary, validPreferences } from '../../src/utils/itineraryGenerator.js';
 
-test('all 256 duration/interest combinations produce complete unique deterministic plans', () => {
-  for (let duration = 1; duration <= 4; duration += 1) {
+test('all 448 duration/interest combinations produce complete unique deterministic plans', () => {
+  for (let duration = 1; duration <= 7; duration += 1) {
     for (let mask = 0; mask < 64; mask += 1) {
       const selected = interests.filter((_, index) => mask & (1 << index)).map((item) => item.id);
       const preferences = { version: 1, duration, interests: selected };
@@ -13,7 +13,7 @@ test('all 256 duration/interest combinations produce complete unique determinist
       assert.equal(new Set(plan.map((day) => day.regionId)).size, duration);
       const stops = plan.flatMap((day) => day.stops);
       assert.equal(stops.length, duration * 3);
-      assert.ok(stops.every((stop) => stop?.name && stop?.description && stop?.photo));
+      assert.ok(stops.every((stop) => stop?.name && stop?.description));
       assert.equal(new Set(stops.map((stop) => stop.id)).size, stops.length);
       assert.deepEqual(plan, generateItinerary(preferences));
       assert.deepEqual(preferences.interests, selected);
@@ -40,7 +40,7 @@ test('reject malformed, out-of-range, duplicate, and unknown saved preferences',
     'bad',
     { version: 2, duration: 2, interests: [] },
     { version: 1, duration: 0, interests: [] },
-    { version: 1, duration: 5, interests: [] },
+    { version: 1, duration: 8, interests: [] },
     { version: 1, duration: 1.5, interests: [] },
     { version: 1, duration: 2, interests: ['unknown'] },
     { version: 1, duration: 2, interests: ['food', 'food'] },

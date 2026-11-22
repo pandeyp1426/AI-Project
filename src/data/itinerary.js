@@ -74,6 +74,38 @@ const extraStops = [
     description:
       'Stay in Lower Manhattan for the evening. Choose dinner when you know your ferry return plans, and let the harbor visit set the pace.',
   },
+  {
+    id: 'tribeca-walk',
+    name: 'A walk through Tribeca',
+    tags: ['neighborhoods', 'photography'],
+    description:
+      'Explore the side streets and look for cast-iron details and old warehouse façades.',
+  },
+  {
+    id: 'tribeca-dinner',
+    name: 'Dinner in Tribeca',
+    tags: ['food', 'neighborhoods'],
+    description: 'Find a table nearby and leave the evening open for a short walk after dinner.',
+  },
+  {
+    id: 'tompkins-square',
+    name: 'Tompkins Square Park',
+    tags: ['nature', 'neighborhoods'],
+    description: 'Pick up coffee and start with a loop through the park before exploring Avenue A.',
+  },
+  {
+    id: 'st-marks-walk',
+    name: 'Explore St. Marks Place',
+    tags: ['culture', 'neighborhoods', 'photography'],
+    description:
+      'Browse the shops and give yourself time for a snack as you head toward Astor Place.',
+  },
+  {
+    id: 'east-village-dinner',
+    name: 'Dinner in the East Village',
+    tags: ['food', 'neighborhoods'],
+    description: 'Choose a spot for dinner, then take a stroll along Second Avenue.',
+  },
 ];
 
 export const activities = Object.fromEntries(
@@ -133,6 +165,24 @@ export const regions = [
   },
 ];
 
+export const extendedTripRegions = [
+  {
+    id: 'tribeca',
+    name: 'From the skyline to the side streets',
+    area: 'World Trade Center & Tribeca',
+    subtitle: 'Take in the city from above, then spend the afternoon on foot.',
+    slots: [['one-world'], ['tribeca-walk'], ['tribeca-dinner']],
+  },
+  {
+    id: 'east-village',
+    name: 'A day in the East Village',
+    area: 'East Village',
+    subtitle: 'A park, independent shops, and time to see where the afternoon takes you.',
+    slots: [['tompkins-square'], ['st-marks-walk'], ['east-village-dinner']],
+  },
+];
+
+export const maxDuration = regions.length + extendedTripRegions.length;
 export const periods = ['Morning', 'Afternoon', 'Evening'];
 export const defaultPreferences = {
   version: 1,
