@@ -180,3 +180,4 @@ export const destinations = [
 
 export const destinationById = Object.fromEntries(destinations.map((place) => [place.id, place]));
 export const featuredDestinations = destinations.slice(0, 6);
+//comment
