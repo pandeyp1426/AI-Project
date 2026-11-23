@@ -1,6 +1,13 @@
 import { useEffect, useRef } from 'react';
 
-export default function Dialog({ children, onClose, labelledBy, className = '', onKeyDown }) {
+export default function Dialog({
+  children,
+  onClose,
+  labelledBy,
+  describedBy,
+  className = '',
+  onKeyDown,
+}) {
   const dialog = useRef(null);
   const callback = useRef(onClose);
   useEffect(() => {
@@ -23,6 +30,7 @@ export default function Dialog({ children, onClose, labelledBy, className = '', 
       ref={dialog}
       className={`modal ${className}`}
       aria-labelledby={labelledBy}
+      aria-describedby={describedBy}
       onCancel={(event) => {
         event.preventDefault();
         callback.current();

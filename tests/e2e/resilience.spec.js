@@ -43,6 +43,11 @@ test('small-mobile planner and lightbox stay usable with reduced motion', async 
   await expect(page.getByRole('button', { name: 'Next photo' })).toBeInViewport();
   await page.getByRole('button', { name: 'Next photo' }).click();
   await expect(page.getByRole('dialog')).toContainText('Image 2 of 13');
+  expect(
+    await page
+      .locator('.lightbox .photo-credit')
+      .evaluate((el) => parseFloat(getComputedStyle(el).fontSize)),
+  ).toBeGreaterThanOrEqual(14);
   await page.screenshot({ path: 'test-results/320-lightbox.png' });
   await page.getByRole('button', { name: 'Close lightbox' }).click();
   await expect(page.getByRole('dialog')).toHaveCount(0);

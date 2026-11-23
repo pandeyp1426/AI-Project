@@ -18,6 +18,7 @@ import {
 } from 'lucide-react';
 import { defaultPreferences, interests, maxDuration } from '../data/itinerary.js';
 import { generateItinerary, validPreferences } from '../utils/itineraryGenerator.js';
+import { samePreferences } from '../utils/planPresentation.js';
 import useLocalStorage from '../hooks/useLocalStorage.js';
 import ItineraryDay from './ItineraryDay.jsx';
 
@@ -44,11 +45,17 @@ export default function ItineraryBuilder() {
   );
   const resultHeading = useRef(null);
   const days = built ? generateItinerary(built) : [];
-  const changed = built && JSON.stringify(preferences) !== JSON.stringify(built);
+  const changed = built && !samePreferences(preferences, built);
+  const isSaved = samePreferences(built, saved);
 
   function build() {
-    setBuilt({ ...preferences, interests: [...preferences.interests] });
-    setMessage('Your itinerary is ready. Save it to keep this version after a refresh.');
+    const next = { ...preferences, interests: [...preferences.interests] };
+    setBuilt(next);
+    setMessage(
+      samePreferences(next, saved)
+        ? 'Your itinerary is ready. It matches the version saved on this browser.'
+        : `Your ${next.duration}-day itinerary is ready. Save it to keep this version after a refresh.`,
+    );
     requestAnimationFrame(() => {
       resultHeading.current?.focus({ preventScroll: true });
       resultHeading.current?.scrollIntoView({
@@ -60,6 +67,7 @@ export default function ItineraryBuilder() {
     });
   }
   function toggleInterest(id) {
+    setMessage('');
     setPreferences((current) => ({
       ...current,
       interests: current.interests.includes(id)
@@ -89,7 +97,10 @@ export default function ItineraryBuilder() {
                   key={duration}
                   className={`duration-button ${preferences.duration === duration ? 'selected' : ''}`}
                   aria-pressed={preferences.duration === duration}
-                  onClick={() => setPreferences({ ...preferences, duration })}
+                  onClick={() => {
+                    setPreferences({ ...preferences, duration });
+                    setMessage('');
+                  }}
                 >
                   <span>{duration}</span> <small>{duration === 1 ? 'day' : 'days'}</small>
                 </button>
@@ -132,7 +143,12 @@ export default function ItineraryBuilder() {
             Thoughtful suggestions. Room for spontaneity.
           </p>
           <div className="mt-5 flex flex-wrap justify-between gap-1 border-t border-line pt-4">
-            <button type="button" className="utility-button" onClick={reset}>
+            <button
+              type="button"
+              className="utility-button"
+              onClick={reset}
+              aria-describedby="reset-help"
+            >
               <RotateCcw size={14} aria-hidden="true" />
               Reset selections
             </button>
@@ -150,6 +166,10 @@ export default function ItineraryBuilder() {
               Load saved
             </button>
           </div>
+          <p id="reset-help" className="mt-3 text-sm leading-6 text-slate">
+            Reset clears these selections and the displayed plan. It does not delete your saved
+            itinerary. Use Load saved to bring it back.
+          </p>
           {saved && (
             <p className="mt-3 flex items-center gap-2 text-xs text-slate">
               <BookmarkCheck size={14} aria-hidden="true" />A {saved.duration}-day itinerary is
@@ -201,10 +221,16 @@ export default function ItineraryBuilder() {
         )}
         {built ? (
           <>
+            <p id="plan-save-state" className="plan-save-state mb-4">
+              {isSaved ? 'Saved on this browser' : 'Unsaved itinerary'}
+              {!isSaved && saved && ` · Your saved ${saved.duration}-day plan is unchanged.`}
+            </p>
             <div className="itinerary-actions mb-6 flex flex-wrap gap-3">
               <button
                 type="button"
                 className="button button-accent"
+                disabled={Boolean(changed) || isSaved}
+                aria-describedby="plan-save-state"
                 onClick={() => {
                   if (save(built))
                     setMessage('Itinerary saved on this browser. It will be here after a refresh.');
@@ -230,9 +256,14 @@ export default function ItineraryBuilder() {
                 Regenerate
               </button>
             </div>
+            <p className="mb-6 text-sm leading-7 text-slate">
+              {built.interests.length
+                ? 'Your interests help choose the stops and the order of days. Each match is noted below; other nearby stops keep the day balanced.'
+                : 'With no interests selected, these days follow our suggested area order, with a mix of sights and pauses.'}
+            </p>
             <div className="grid gap-7">
               {days.map((day) => (
-                <ItineraryDay key={day.regionId} day={day} />
+                <ItineraryDay key={day.regionId} day={day} selectedInterests={built.interests} />
               ))}
             </div>
             <p className="itinerary-disclaimer mt-6 text-xs leading-6 text-slate">

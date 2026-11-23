@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { ArrowUpRight, Compass, Heart } from 'lucide-react';
+import { ArrowUpRight, Compass, Heart, X } from 'lucide-react';
 import PageIntro from '../components/PageIntro.jsx';
 import DestinationCard from '../components/DestinationCard.jsx';
 import DestinationDetails from '../components/DestinationDetails.jsx';
@@ -18,10 +18,17 @@ export default function Explore() {
   const { favorites } = useFavorites();
   const category = categories.includes(params.get('category')) ? params.get('category') : 'All';
   const visible = filterDestinations(destinations, { query, category, savedOnly, favorites });
+  const focusSearch = () => document.getElementById('destination-search')?.focus();
+  const activeFilters = [
+    ...(query.trim() ? [{ label: `Search: ${query.trim()}`, clear: () => setQuery('') }] : []),
+    ...(category !== 'All' ? [{ label: `Category: ${category}`, clear: () => setParams({}) }] : []),
+    ...(savedOnly ? [{ label: 'Favorites only', clear: () => setSavedOnly(false) }] : []),
+  ];
   const reset = () => {
     setQuery('');
     setSavedOnly(false);
     setParams({});
+    focusSearch();
   };
   return (
     <>
@@ -65,11 +72,32 @@ export default function Explore() {
               onChange={(next) => setParams(next === 'All' ? {} : { category: next })}
             />
           </div>
+          {activeFilters.length > 0 && (
+            <div className="active-filters mt-5" role="group" aria-label="Active filters">
+              <span className="text-sm font-medium">Showing:</span>
+              {activeFilters.map((filter) => (
+                <button
+                  key={filter.label}
+                  type="button"
+                  className="active-filter"
+                  aria-label={`Remove ${filter.label}`}
+                  onClick={() => {
+                    filter.clear();
+                    focusSearch();
+                  }}
+                >
+                  <span>{filter.label}</span>
+                  <X size={16} className="shrink-0" aria-hidden="true" />
+                </button>
+              ))}
+            </div>
+          )}
         </div>
         <div className="my-7 flex flex-wrap items-center justify-between gap-3">
-          <p className="text-sm text-slate" role="status">
+          <p className="text-sm text-slate" role="status" aria-atomic="true">
             {visible.length} {visible.length === 1 ? 'place' : 'places'} to{' '}
             {savedOnly ? 'keep dreaming about' : 'discover'}
+            {category !== 'All' && ` in ${category}`}
           </p>
           {(query || savedOnly || category !== 'All') && (
             <button type="button" className="text-link text-sm" onClick={reset}>
@@ -101,7 +129,9 @@ export default function Explore() {
             <p className="mx-auto mt-4 max-w-md leading-7 text-slate">
               {savedOnly && !favorites.length
                 ? 'Save a place that catches your eye. You’ll find your favorites here whenever you come back.'
-                : 'No places match these filters. Try another search or make a little more room in your plans.'}
+                : savedOnly
+                  ? 'None of your favorites match this search and category. Remove a filter above to widen the results; your saved places will stay saved.'
+                  : 'No places match this search and category. Remove one filter above, try a place or neighborhood name, or explore all 12 places.'}
             </p>
             <button type="button" className="button button-dark mt-6" onClick={reset}>
               Explore all places <ArrowUpRight size={16} aria-hidden="true" />

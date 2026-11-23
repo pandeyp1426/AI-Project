@@ -1,0 +1,383 @@
+
+You are continuing work on my existing university project, "New York, Someday."
+
+Live website:
+https://pandeyp1426.github.io/AI-Project/#/
+
+GitHub repository:
+https://github.com/pandeyp1426/AI-Project
+
+IMPORTANT:
+This is an existing, largely complete React, Vite, and Tailwind CSS website.
+
+DO NOT create a new project.
+DO NOT redesign the entire website.
+DO NOT replace working functionality.
+DO NOT remove existing documentation or Git history.
+
+Your job is to review, improve, test, and finalize the current implementation for the highest possible score on my AI-Assisted Coding assignment.
+
+The assignment has five grading categories worth 20 points each:
+
+1. Content and structure
+2. Design and CSS
+3. JavaScript functionality
+4. Code quality and accessibility
+5. AI workflow and reflection
+
+The site already performs well in the first four categories. Focus especially on authentic AI workflow documentation, thoughtful refinements, testing, and submission readiness.
+
+==================================================
+STEP 1: AUDIT THE EXISTING REPOSITORY
+==================================================
+
+Before editing anything, inspect:
+
+- README.md
+- docs/SITE_PLAN.md
+- docs/PROMPT_LOG.md
+- docs/ORIGINAL_PROMPT.txt
+- docs/REFLECTION.md
+- docs/TEST_REPORT.md
+- docs/IMAGE_CREDITS.md
+- All React pages
+- Interactive components
+- Shared CSS
+- Existing automated tests
+- Git status and recent commits
+
+Identify what is already complete and what genuinely needs improvement.
+
+Do not implement duplicate features.
+
+Do not overwrite unrelated work.
+
+==================================================
+STEP 2: MAKE THREE MEANINGFUL REFINEMENTS
+==================================================
+
+I want to demonstrate genuine iteration and improvement through AI-assisted development.
+
+Review these three areas and implement specific, useful improvements where needed.
+
+IMPROVEMENT 1: EXPLORE PAGE
+
+Review:
+- Destination search
+- Category filtering
+- Favorites
+- Empty search results
+- Mobile layout
+- Keyboard accessibility
+
+Improve the clarity of the interface.
+
+Possible refinements:
+- Make active filters more visually obvious.
+- Ensure users can easily reset searches and filters.
+- Improve messages when no destinations match.
+- Make saved destinations easier to distinguish.
+- Improve mobile spacing and controls.
+
+Do not add a feature that already exists unless you are making a meaningful improvement.
+
+Explain exactly what you changed and why.
+
+IMPROVEMENT 2: GALLERY EXPERIENCE
+
+Review:
+- Image grid
+- Image lightbox
+- Captions
+- Keyboard navigation
+- Mobile controls
+- Image accessibility
+
+Improve the user experience without changing the existing visual identity.
+
+Possible refinements:
+- Clearer interactive navigation hints.
+- Better caption readability.
+- Improved mobile lightbox positioning.
+- More consistent focus indicators.
+- Better image-loading feedback where necessary.
+
+Preserve existing image licensing and attribution.
+
+Explain each actual change.
+
+IMPROVEMENT 3: TRIP PLANNER
+
+Review:
+- Trip duration selection
+- Interest selection
+- Itinerary generation
+- Saved itineraries
+- Reset functionality
+- Mobile usability
+- Feedback messages
+
+Make the planner easier to understand and use.
+
+Prioritize:
+- Clearly explaining why suggested destinations match selected interests.
+- Making saved-versus-unsaved state obvious.
+- Improving feedback after generating or saving a plan.
+- Clarifying the difference between reset and deleting a saved itinerary.
+- Keeping the interface clean and accessible.
+
+Do not introduce unnecessary complexity, random itinerary generation, or external APIs.
+
+Preserve the existing deterministic itinerary logic.
+
+If a proposed improvement is already implemented well, identify that and choose a different useful refinement within the same feature.
+
+For each changed feature:
+- Explain the original behavior.
+- Describe the actual improvement.
+- Explain why the improvement matters.
+- Add or update regression tests.
+- Verify that existing functionality still works.
+
+==================================================
+STEP 3: COMPLETE THE AI PROMPT LOG
+==================================================
+
+Update:
+
+docs/PROMPT_LOG.md
+
+The instructor expects documentation for at least three significant features.
+
+The existing log contains three feature records derived from the original comprehensive prompt.
+
+Preserve these records and clearly distinguish original requirements from subsequent iterations.
+
+Record this follow-up instruction as a genuine new Codex prompt.
+
+For each feature, document:
+
+1. Feature being developed or improved
+2. AI tool used: Codex
+3. Actual prompt used
+4. What Codex generated or changed
+5. What was kept
+6. What was rejected or modified
+7. Why the changes were appropriate
+8. Tests performed
+9. Any remaining student review
+
+Do not invent separate prompts that were never submitted.
+
+Do not fabricate student approval, personal testing, debugging, or decisions.
+
+When the source prompt is long, reference a preserved full-text copy and include a meaningful verbatim excerpt.
+
+Clearly identify which decisions were made by Codex and which still require my own review.
+
+Add an easy-to-complete student review section for each significant feature.
+
+==================================================
+STEP 4: IMPROVE THE PERSONAL REFLECTION
+==================================================
+
+Update:
+
+docs/REFLECTION.md
+
+The current document contains unfinished placeholders.
+
+Rewrite it into a polished, natural, student-level reflection based on verifiable project information.
+
+Use a conversational but academically appropriate tone.
+
+Avoid overly formal language, exaggerated claims, or generic AI-generated phrasing.
+
+Use these known facts:
+
+- I chose New York City because it is somewhere I would like to visit.
+- I have not visited New York yet.
+- The site represents a future travel wish list.
+- I wanted something visually attractive and interactive.
+- I chose React and Tailwind CSS for reusable components and responsive styling.
+- I used Codex to assist with development.
+- The website includes destination exploration, photography, and an itinerary planner.
+- The code was organized into reusable components.
+- Development included automated testing and documented corrections.
+
+Write sections covering:
+
+1. Why I chose New York City
+2. Why I chose React and Tailwind CSS
+3. How Codex assisted development
+4. What the code does
+5. Actual improvements made during development
+6. Actual challenges recorded in the development process
+7. Testing and verification
+8. What I would improve in the future
+9. My responsibility for the final project
+
+IMPORTANT:
+You may fully describe objective technical work verified in the repository.
+
+Do not claim that I personally reviewed code, discovered problems, performed manual testing, or made decisions unless the record supports it.
+
+Clearly distinguish Codex's development work from my own contributions.
+
+For subjective sections requiring my own experience, provide a short, specific field for me to finish before submission rather than fabricating a personal experience.
+
+Make the draft as complete as the available evidence genuinely allows.
+
+==================================================
+STEP 5: UPDATE THE TEST REPORT
+==================================================
+
+Update:
+
+docs/TEST_REPORT.md
+
+Retain all genuine previous test results.
+
+Run the current test suite and document any new results.
+
+Include:
+
+- Navigation verification
+- Images and alt text
+- Search
+- Filters
+- Favorites
+- LocalStorage persistence
+- Gallery interactions
+- Trip planner
+- Mobile responsiveness
+- Browser console errors
+- Accessibility
+- Production build
+- Broken links and assets
+
+Use a table with:
+
+Test ID
+Feature
+Test procedure
+Expected result
+Actual result
+Status
+Fix made
+
+Only mark tests as passed when they actually execute successfully.
+
+Separate automated testing from manual human testing.
+
+Do not claim that I personally tested the website.
+
+If browser automation is available, test the production build at desktop and mobile sizes.
+
+Check widths of:
+320px, 375px, 768px, 1024px, 1440px.
+
+Check for:
+- Horizontal overflow
+- Broken layouts
+- Incorrect image cropping
+- Unreadable text
+- Navigation problems
+- Interactive failures
+- Keyboard accessibility problems
+
+Correct actual defects and rerun affected tests.
+
+==================================================
+STEP 6: VERIFY RUBRIC COMPLIANCE
+==================================================
+
+Create or update a concise rubric checklist in the README or a dedicated document.
+
+For each criterion, identify actual implementation evidence.
+
+CONTENT AND STRUCTURE:
+At least three complete sections or pages, consistent navigation, meaningful content, licensed images.
+
+DESIGN AND CSS:
+Consistent visual design, responsive layouts, shared styling, attractive photography.
+
+JAVASCRIPT:
+Functional interactive features, edge-case handling, clean implementation.
+
+CODE QUALITY:
+Semantic HTML, organized React components, shared external CSS, accessible markup, consistent formatting.
+
+AI WORKFLOW:
+Authentic prompt log, meaningful iteration, documented corrections, reflection and ownership.
+
+Avoid self-awarding a guaranteed grade.
+
+Clearly identify any unfinished requirements.
+
+==================================================
+STEP 7: FINAL QUALITY CHECK
+==================================================
+
+After making changes:
+
+1. Run ESLint.
+2. Run formatting checks.
+3. Run all unit tests.
+4. Run browser tests where possible.
+5. Run the production build.
+6. Verify GitHub Pages routing.
+7. Verify local images.
+8. Check accessibility.
+9. Check that documentation links work.
+10. Review Git changes before committing.
+
+Fix any regression caused by your changes.
+
+Do not leave placeholder content in the website itself.
+
+Do not remove existing working features.
+
+==================================================
+STEP 8: GITHUB
+==================================================
+
+Use the existing repository and branch.
+
+Preserve previous commits.
+
+Create a descriptive commit for the verified changes.
+
+If the authenticated remote is available and pushing is permitted, push the changes to the existing repository.
+
+Do not force-push or overwrite unrelated changes.
+
+Verify deployment status if access permits.
+
+Do not claim deployment succeeded unless it has actually been confirmed.
+
+==================================================
+FINAL RESPONSE
+==================================================
+
+When everything is completed, provide:
+
+1. Summary of actual code improvements
+2. Files modified
+3. Explanation of the three feature refinements
+4. Tests executed and results
+5. Documentation updates
+6. Git commit information
+7. Deployment verification, if available
+8. Remaining issues
+9. Exactly what I must personally review or complete before submission
+
+IMPORTANT FINAL INSTRUCTION:
+
+My assignment grades my understanding and ownership of the project.
+
+Do not fabricate my involvement to make the documentation appear more impressive.
+
+Make the website and documentation as polished and complete as possible while preserving an honest record of AI assistance.
+
+Begin by inspecting the existing repository and proceed with implementation.

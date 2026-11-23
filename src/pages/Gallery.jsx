@@ -32,7 +32,7 @@ export default function Gallery() {
         </p>
       </PageIntro>
       <section className="page-shell pb-20" aria-label="New York photo gallery">
-        <div className="mb-8 flex items-center justify-between border-y border-line py-4 text-xs text-slate">
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-3 border-y border-line py-4 text-sm text-slate">
           <p>{gallery.length} perspectives on one city</p>
           <p>Open a frame. Look a little closer.</p>
         </div>

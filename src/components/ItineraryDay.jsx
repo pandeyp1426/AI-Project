@@ -1,9 +1,10 @@
 import { ExternalLink, MapPin, Moon, Sun, Sunrise } from 'lucide-react';
 import { periods } from '../data/itinerary.js';
+import { explainStop } from '../utils/planPresentation.js';
 import Photo, { PhotoCredit } from './Photo.jsx';
 
 const periodIcons = [Sunrise, Sun, Moon];
-export default function ItineraryDay({ day }) {
+export default function ItineraryDay({ day, selectedInterests }) {
   return (
     <article className="itinerary-day">
       <header className="flex gap-5 border-b border-line pb-6">
@@ -29,6 +30,9 @@ export default function ItineraryDay({ day }) {
               <div className="min-w-0">
                 <p className="eyebrow mb-2 text-slate">{periods[index]}</p>
                 <h4 className="text-base font-semibold">{stop?.name || 'Leave a little room'}</h4>
+                <p className="stop-reason mt-2 text-sm leading-6 text-rust">
+                  {explainStop(stop, selectedInterests)}
+                </p>
                 <p className="mt-2 text-sm leading-7 text-slate">
                   {stop?.description ||
                     'Take a break, find something to eat, or revisit a favorite nearby street.'}

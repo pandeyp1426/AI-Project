@@ -1,6 +1,47 @@
+import { useState } from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import Dialog from './Dialog.jsx';
 import Photo, { PhotoCredit } from './Photo.jsx';
+
+function LightboxPhoto({ id }) {
+  const [state, setState] = useState('loading');
+  const [attempt, setAttempt] = useState(0);
+  return (
+    <div className="lightbox-stage">
+      <Photo
+        key={attempt}
+        id={id}
+        className={`lightbox-image ${state === 'ready' ? '' : 'invisible'}`}
+        priority
+        onLoad={() => setState('ready')}
+        onError={() => setState('error')}
+      />
+      {state !== 'ready' && (
+        <div className="lightbox-feedback">
+          <p role="status">
+            {state === 'loading' ? 'Loading photograph…' : 'This photograph could not load.'}
+          </p>
+          {state === 'error' && (
+            <button
+              type="button"
+              className="button button-glass mt-4"
+              onClick={(event) => {
+                event.currentTarget
+                  .closest('dialog')
+                  ?.querySelector('[aria-label="Close lightbox"]')
+                  ?.focus();
+                setState('loading');
+                setAttempt((value) => value + 1);
+              }}
+            >
+              Retry photo
+            </button>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function ImageLightbox({ items, index, onChange, onClose }) {
   const move = (step) => onChange((index + step + items.length) % items.length);
@@ -9,6 +50,7 @@ export default function ImageLightbox({ items, index, onChange, onClose }) {
     <Dialog
       className="lightbox"
       labelledBy="lightbox-title"
+      describedBy="lightbox-help"
       onClose={onClose}
       onKeyDown={(event) => {
         if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
@@ -18,8 +60,25 @@ export default function ImageLightbox({ items, index, onChange, onClose }) {
       }}
     >
       <div className="lightbox-inner">
-        <div className="flex items-center justify-between gap-4 pb-4">
-          <p className="eyebrow text-white/70">New York, in frames</p>
+        <div className="lightbox-toolbar">
+          <div className="flex gap-2" role="group" aria-label="Photo navigation">
+            <button
+              type="button"
+              className="lightbox-nav"
+              aria-label="Previous photo"
+              onClick={() => move(-1)}
+            >
+              <ChevronLeft size={18} aria-hidden="true" /> Previous
+            </button>
+            <button
+              type="button"
+              className="lightbox-nav"
+              aria-label="Next photo"
+              onClick={() => move(1)}
+            >
+              Next <ChevronRight size={18} aria-hidden="true" />
+            </button>
+          </div>
           <button
             type="button"
             className="icon-button text-white"
@@ -30,7 +89,7 @@ export default function ImageLightbox({ items, index, onChange, onClose }) {
             <X aria-hidden="true" />
           </button>
         </div>
-        <Photo key={current.id} id={current.id} className="lightbox-image" priority />
+        <LightboxPhoto key={current.id} id={current.id} />
         <div className="mt-5 flex flex-wrap items-center justify-between gap-4">
           <div aria-live="polite" aria-atomic="true">
             <h2 id="lightbox-title" className="font-serif text-2xl text-white sm:text-3xl">
@@ -40,27 +99,12 @@ export default function ImageLightbox({ items, index, onChange, onClose }) {
               {current.location} · Image {index + 1} of {items.length}
             </p>
           </div>
-          <div className="flex gap-3">
-            <button
-              type="button"
-              className="icon-button border border-white/30 text-white"
-              aria-label="Previous photo"
-              onClick={() => move(-1)}
-            >
-              <ChevronLeft aria-hidden="true" />
-            </button>
-            <button
-              type="button"
-              className="icon-button border border-white/30 text-white"
-              aria-label="Next photo"
-              onClick={() => move(1)}
-            >
-              <ChevronRight aria-hidden="true" />
-            </button>
-          </div>
         </div>
         <p className="mt-4">
           <PhotoCredit photo={current.id} className="text-white/65" />
+        </p>
+        <p id="lightbox-help" className="mt-4 text-sm leading-6 text-white/75">
+          Use Left and Right arrow keys to browse. Escape closes.
         </p>
       </div>
     </Dialog>

@@ -15,6 +15,8 @@
 
 ## Audience and purpose
 
+**Current scope, November 22:** The original plan above is preserved. Existing commits extended the planner from four to seven days; this refinement retains that work and adds filter clarity, lightbox feedback/navigation, and planner explanations/saved-state visibility. The visual identity, five routes, local photo assets and deterministic generation remain intact. See [the authentic follow-up record](PROMPT_LOG.md) and [submission checklist](RUBRIC_CHECKLIST.md).
+
 People curious about a first NYC trip, visitors collecting ideas before booking, and an instructor reviewing an AI-assisted frontend project. The site is an independent wish list, not a booking service or a record of a completed trip.
 
 ## Page architecture

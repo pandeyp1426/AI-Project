@@ -402,6 +402,7 @@
   .search-field {
     display: flex;
     flex: 1;
+    min-width: 0;
     align-items: center;
     gap: 13px;
     min-height: 52px;
@@ -429,12 +430,12 @@
   }
   .filter-chip {
     display: inline-flex;
-    min-height: 42px;
+    min-height: 44px;
     align-items: center;
     padding: 9px 17px;
     border: 1px solid var(--color-line);
     border-radius: 3px;
-    font-size: 12px;
+    font-size: 14px;
     transition: background 180ms;
   }
   .filter-chip.selected {
@@ -444,6 +445,30 @@
   }
   .filter-chip:hover:not(.selected) {
     background: var(--color-sand);
+  }
+  .active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+  .active-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    max-width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #bc7455;
+    border-radius: 3px;
+    background: #f7eee6;
+    color: #8c3c21;
+    font-size: 14px;
+    text-align: left;
+    overflow-wrap: anywhere;
+  }
+  .active-filter:hover {
+    background: #f0dfd2;
   }
   .count-badge {
     display: inline-flex;
@@ -527,6 +552,50 @@
     width: 100%;
     height: min(65vh, 680px);
     object-fit: contain;
+  }
+  .lightbox-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 12px;
+    background: var(--color-navy);
+    box-shadow: 0 -20px 0 var(--color-navy);
+  }
+  .lightbox-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    min-height: 44px;
+    padding: 8px;
+    border: 1px solid #ffffff66;
+    border-radius: 3px;
+    color: white;
+    font-size: 14px;
+  }
+  .lightbox-nav:hover {
+    background: #ffffff15;
+  }
+  .lightbox-stage {
+    position: relative;
+  }
+  .lightbox-feedback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+  }
+  .lightbox .photo-credit {
+    font-size: 14px;
   }
   .story-body {
     width: min(710px, calc(100% - 48px));
@@ -676,7 +745,19 @@
     min-height: 44px;
     align-items: center;
     gap: 6px;
-    font-size: 10px;
+    font-size: 14px;
+  }
+  .planner-panel .button,
+  .planner-panel .interest-button,
+  .discovery-controls .button {
+    font-size: 14px;
+  }
+  .plan-save-state {
+    border-left: 3px solid var(--color-rust);
+    padding-left: 12px;
+    color: var(--color-ink);
+    font-size: 14px;
+    line-height: 1.7;
   }
   .planner-note {
     display: flex;
@@ -870,7 +951,7 @@
     padding: 15px;
   }
   .lightbox-image {
-    height: 52vh;
+    height: 45dvh;
   }
 }
 @media (max-width: 479px) {
@@ -921,9 +1002,6 @@
     flex: 1 1 auto;
     padding-inline: 13px;
   }
-  .photo-credit {
-    font-size: 10px;
-  }
 }
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -953,6 +1031,7 @@
   .travel-tips,
   .itinerary-actions,
   .status-message,
+  .plan-save-state,
   .storage-warning,
   .editorial-note {
     display: none !important;
